@@ -1,6 +1,3 @@
-
-
-
 players = [
 #list of players and their number, points from the season, height, weight and age 
 {"name": "Andreas Athanasiou", "number": 89, "points": 24, "height": "6'0\"", "weight": 180},
@@ -60,3 +57,19 @@ def chatbot():
         else:
             # Inform the user that the player was not found
             print("Player not found. Please try again.")
+
+def test_get_player_stats():
+    # Test cases
+    assert get_player_stats("Conor Bedard") == {"name": "Conor Bedard", "number": 98, "points": 45, "height": "5'10\"", "weight": 175}
+    assert get_player_stats("Andreas Athanasiou") == {"name": "Andreas Athanasiou", "number": 89, "points": 24, "height": "6'0\"", "weight": 180}
+    assert get_player_stats("Bob") is None
+    assert get_player_stats("Ryan Donato") == {"name": "Ryan Donato", "number": 16, "points": 27, "height": "6'0\"", "weight": 200}
+    assert get_player_stats("Nick Foligno") == {"name": "Nick Foligno", "number": 17, "points": 19, "height": "6'0\"", "weight": 225}
+
+    # Test for case insensitivity
+    assert get_player_stats("conor bedard") == {"name": "Conor Bedard", "number": 98, "points": 45, "height": "5'10\"", "weight": 175}
+    
+    print("All tests passed!")
+
+# Call the test function
+test_get_player_stats()
